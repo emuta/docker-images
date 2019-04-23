@@ -24,10 +24,11 @@ RUN apk update \
     && go get github.com/dgrijalva/jwt-go \
     && go get github.com/sirupsen/logrus \
     && go get github.com/streadway/amqp \
+    && go get github.com/satori/go.uuid \
     && go get github.com/robfig/cron \
     && go get google.golang.org/grpc \
-    && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway \
-    && go get -u github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger \
+    && go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway \
+    && go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger \
     && go get github.com/golang/protobuf/protoc-gen-go \
     && go install github.com/golang/protobuf/protoc-gen-go
 
