@@ -10,7 +10,7 @@ RUN apk update \
     && echo $TZ > /etc/timezone \
     && rm -rf /var/cache/apk
 
-RUN makdir -p $DBPATH \
+RUN mkdir -p $DBPATH \
     && chown -R mongodb $DBPATH
 
 CMD ["mongod", "--dbpath", "$DBPATH"]
