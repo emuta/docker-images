@@ -11,6 +11,9 @@ ENV REDIS_URL    "redis://:@redis:6379/0"
 
 RUN apk update \
     && apk add protobuf tzdata curl git wget iproute2 bash upx \
+    && cp /usr/share/zoneinfo/$TZ /etc/localtime \
+    && echo $TZ > /etc/timezone \
+    && rm -rf /var/cache/apk
     && go get golang.org/x/net/html/charset \
     && go get golang.org/x/crypto/bcrypt \
     && go get github.com/pkg/errors \
