@@ -5,9 +5,9 @@ ENV TZ "Asia/Shanghai"
 ENV GRPC_GO_LOG_VERBOSITY_LEVEL "99" 
 ENV GRPC_GO_LOG_SEVERITY_LEVEL  "info"
 
-ENV PG_URL       "postgresql://postgres:psqlpass@postgresql:5432/postgres?sslmode=disable"
-ENV RABBITMQ_URL "amqp://guest:guest@rabbitmq:5672/"
-ENV REDIS_URL    "redis://:@redis:6379/0"
+ENV POSTGRES_SERVER_URL "postgresql://postgres:psqlpass@postgresql:5432/postgres?sslmode=disable"
+ENV RABBIT_SERVER_URL   "amqp://guest:guest@rabbitmq:5672/"
+ENV REDIS_SERVER_URL    "redis://:@redis:6379/0"
 
 RUN apk update \
     && apk add protobuf tzdata curl git wget iproute2 bash upx \
@@ -29,11 +29,11 @@ RUN apk update \
     && go get github.com/streadway/amqp \
     && go get github.com/satori/go.uuid \
     && go get github.com/robfig/cron \
+    && go get go get gocloud.dev/pubsub \
     && go get google.golang.org/grpc \
     && go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway \
     && go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger \
     && go get github.com/golang/protobuf/protoc-gen-go \
-    && go install github.com/golang/protobuf/protoc-gen-go \
-    && go get github.com/emuta/go-rabbitmq/pubsub/publisher
+    && go install github.com/golang/protobuf/protoc-gen-go
 
 CMD ["sh"]
