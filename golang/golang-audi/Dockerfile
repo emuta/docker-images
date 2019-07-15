@@ -29,7 +29,7 @@ RUN apk update \
     && go get github.com/streadway/amqp \
     && go get github.com/satori/go.uuid \
     && go get github.com/robfig/cron \
-    && go get go get gocloud.dev/pubsub \
+    && go get gocloud.dev/pubsub \
     && go get google.golang.org/grpc \
     && go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway \
     && go get github.com/grpc-ecosystem/grpc-gateway/protoc-gen-swagger \
