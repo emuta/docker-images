@@ -12,6 +12,9 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories
     && apk update \
     && apk add protobuf tzdata curl git wget iproute2 bash upx \
     && cp /usr/share/zoneinfo/$TZ /etc/localtime \
-    && echo $TZ > /etc/timezone
+    && echo $TZ > /etc/timezone \
+    && go get google.golang.org/grpc \
+    && go get github.com/golang/protobuf/protoc-gen-go \
+    && go install github.com/golang/protobuf/protoc-gen-go
 
 CMD ["sh"]
