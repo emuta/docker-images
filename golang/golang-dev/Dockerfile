@@ -5,7 +5,7 @@ ENV TZ "Asia/Shanghai"
 ENV GRPC_GO_LOG_VERBOSITY_LEVEL "99" 
 ENV GRPC_GO_LOG_SEVERITY_LEVEL  "info"
 
-RUN go env -w GO111MODULE=on
+RUN go env -w GO111MODULE="on"
 RUN go env -w GOPROXY="https://goproxy.io,direct"
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/g' /etc/apk/repositories \
